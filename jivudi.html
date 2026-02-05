@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Sorry</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      overflow: hidden;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 22px;
+      padding: 30px 25px 35px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      animation: pop 0.8s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .flowers {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .flower {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, #fff, #ff9fc9);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .flower:nth-child(2) { animation-delay: 0.5s; }
+    .flower:nth-child(3) { animation-delay: 1s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #ff4d88;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff4d88, #ff85ad);
+      border: none;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 20px rgba(255,77,136,0.4);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(255,77,136,0.55);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #999;
+    }
+
+    /* Second screen */
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1.2s infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="screen1">
+    <div class="flowers">
+      <div class="flower"></div>
+      <div class="flower"></div>
+      <div class="flower"></div>
+    </div>
+
+    <h1>Hey Jiya ❤️</h1>
+    <p>Can we talk for a moment, Jiya? There’s something important I want to tell you — from my heart.</p>
+
+    <button onclick="nextScreen()">Continue</button>
+
+    <div class="footer">@vivekbuilds</div>
+  </div>
+
+  <div class="card hidden" id="screen2">
+    <div class="heart">❤️</div>
+    <h1>I’m Really Sorry, Jiya</h1>
+    <p>
+      I know I made mistakes and hurt you, Jiya — and I truly regret that. 💔
+      That was never my intention. You mean so much more to me than my ego or my mistakes.
+      I may not be perfect, but my feelings for you are real, pure, and honest.
+      If you give me one more chance, I promise to listen better, care deeper, and love you the way you deserve. 💖
+    </p>
+
+    <button onclick="alert('Thank you for giving me a chance 💖')">Forgive Me?</button>
+  </div>
+
+  <script>
+    function nextScreen() {
+      document.getElementById('screen1').classList.add('hidden');
+      document.getElementById('screen2').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
